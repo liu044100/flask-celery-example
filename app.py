@@ -76,7 +76,7 @@ def index():
         flash('Sending email to {0}'.format(email))
     else:
         # send in one minute
-        send_async_email.apply_async(args=[msg], countdown=60)
+        send_async_email.apply_async(args=(msg,), countdown=60)
         flash('An email will be sent to {0} in one minute'.format(email))
 
     return redirect(url_for('index'))
